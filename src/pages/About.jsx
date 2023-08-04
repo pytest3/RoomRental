@@ -41,7 +41,6 @@ export default function About() {
 const AboutWrapper = styled.div`
   display: grid;
   gap: var(--space-6);
-  border: 4px solid pink;
 `;
 
 const Image = styled.img`

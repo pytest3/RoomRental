@@ -14,8 +14,7 @@ export default function Root() {
 }
 
 const RootWrapper = styled.div`
-  border: 4px solid blue;
   display: grid;
   grid-template-rows: 45px 1fr 45px;
-  min-height: 100%;
+  height: 100%;
 `;
