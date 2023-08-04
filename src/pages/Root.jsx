@@ -16,6 +16,6 @@ export default function Root() {
 const RootWrapper = styled.div`
   border: 4px solid blue;
   display: grid;
-  grid-template-rows: 60px 1fr 60px;
+  grid-template-rows: 45px 1fr 45px;
   min-height: 100%;
 `;
