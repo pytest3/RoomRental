@@ -7,7 +7,7 @@ export default function NavBar() {
       <Logo to="/">RoomHub</Logo>
       <NavBarActions>
         <StyledLink to="/about">About</StyledLink>
-        <StyledLink>Rooms</StyledLink>
+        <StyledLink to="/rooms">Rooms</StyledLink>
       </NavBarActions>
     </NavBarWrapper>
   );

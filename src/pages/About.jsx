@@ -1,14 +1,15 @@
 import { styled } from "styled-components";
 import NavBar from "../components/HomePage/NavBar";
+import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
+import { FullBleedWrapper } from "../UI/FullBleed";
 
 export default function About() {
   return (
-    <>
-      <NavBar />
+    <MaxWidthWrapper>
       <AboutWrapper>
-        <AboutHeroWrapper>
-          <AboutHero src="./images/room-plants-pic.jpg" />
-        </AboutHeroWrapper>
+        <FullBleedWrapper>
+          <Image src="./images/room-plants-pic.jpg" />
+        </FullBleedWrapper>
         <MissionStatement>
           <Header>Where Spaces Become Homes</Header>
           <p>
@@ -33,22 +34,17 @@ export default function About() {
           <button>Explore our rooms</button>
         </CallToAction>
       </AboutWrapper>
-    </>
+    </MaxWidthWrapper>
   );
 }
 
-const AboutHeroWrapper = styled.div`
-  margin-left: -30px;
-  margin-right: -30px;
-`;
-
 const AboutWrapper = styled.div`
-  padding: 30px;
   display: grid;
   gap: var(--space-6);
+  border: 4px solid pink;
 `;
 
-const AboutHero = styled.img`
+const Image = styled.img`
   object-fit: cover;
   width: 100%;
   height: 200px;
@@ -61,6 +57,7 @@ const Header = styled.h1`
 const MissionStatement = styled.div`
   display: grid;
   gap: var(--space-2);
+  overflow: auto;
 `;
 
 const CallToAction = styled.div`

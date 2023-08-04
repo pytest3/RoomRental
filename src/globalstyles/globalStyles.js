@@ -205,6 +205,12 @@ html {
   --border-radius-medium: ${BORDER_RADIUS.medium};
   --border-radius-large: ${BORDER_RADIUS.large};
   --border-radius-larger: ${BORDER_RADIUS.larger};
+
+    /* GLOBAL PADDING ( ONLY USE WHEN NECESSARY)
+===================================================================
+  */
+
+  --global-padding: 30px
 }
 `;
 
