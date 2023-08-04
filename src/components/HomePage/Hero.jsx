@@ -51,5 +51,6 @@ const CTAButton = styled.button`
   padding: var(--space-4) var(--space-2);
   border-radius: var(--border-radius-large);
   font-size: var(--font-size-4);
+  border: none;
   /* align-self: start; */
 `;
