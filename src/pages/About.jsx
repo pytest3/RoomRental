@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import NavBar from "../components/HomePage/NavBar";
 import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
 import { FullBleedWrapper } from "../UI/FullBleed";
 
@@ -22,25 +21,29 @@ export default function About() {
             With a focus on convenience, comfort, and seamless experiences, we
             are committed to providing a platform where users can explore,
             connect, and thrive in spaces that feel like home.
-            {/* At RoomHub, we believe that
-        every stay should be an adventure, and we are dedicated to helping our
-        users discover their ideal rooms, create cherished memories, and
-        embrace the joy of a home that truly resonates with their heart and
-        soul. */}
           </p>
         </MissionStatement>
         <CallToAction>
-          <h2>Step into the World of Room Rentals</h2>
-          <button>Explore our rooms</button>
+          <CTAText>Step into the World of Room Rentals</CTAText>
+          <CTAButton>Explore our rooms</CTAButton>
         </CallToAction>
       </AboutWrapper>
     </MaxWidthWrapper>
   );
 }
+const CTAButton = styled.button`
+  font-size: var(--font-size-2);
+`;
+const CTAText = styled.p`
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-bold);
+  max-width: 20ch;
+`;
 
 const AboutWrapper = styled.div`
   display: grid;
   gap: var(--space-6);
+  padding-bottom: var(--space-6);
 `;
 
 const Image = styled.img`
@@ -51,17 +54,19 @@ const Image = styled.img`
 
 const Header = styled.h1`
   font-size: var(--font-size-6);
+  line-height: 1.2;
 `;
 
 const MissionStatement = styled.div`
   display: grid;
   gap: var(--space-2);
   overflow: auto;
+  margin: var(--space-1) 0;
 `;
 
 const CallToAction = styled.div`
   background-color: var(--color-orange-500);
-  padding: var(--space-5) var(--space-6);
+  padding: var(--space-4) var(--space-6);
   border-radius: var(--border-radius-large);
   gap: var(--space-4);
   display: grid;

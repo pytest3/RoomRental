@@ -15,6 +15,7 @@ export default function NavBar() {
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  color: var(--color-gray-900);
 `;
 
 const NavBarActions = styled.div`
@@ -27,6 +28,7 @@ const Logo = styled(Link)`
   font-size: var(--font-size-6);
   text-decoration: none;
   font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
 `;
 
 const NavBarWrapper = styled.nav`
@@ -34,6 +36,6 @@ const NavBarWrapper = styled.nav`
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: end;
-  padding: 0 30px;
+  padding: 0 var(--global-padding);
   background-color: var(--color-orange-100);
 `;
