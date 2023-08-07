@@ -1,7 +1,9 @@
 import { styled } from "styled-components";
 import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
 import { data } from "../mockdata/data.js";
+import { roomTypes } from "../mockdata/roomTypes.js";
 import { Link } from "react-router-dom";
+import Tag from "../UI/Tag";
 
 export default function Rooms() {
   return (
@@ -9,12 +11,13 @@ export default function Rooms() {
       <RoomsWrapper>
         <Header>Explore our housing options</Header>
         <Filters>
-          <Buttons>
-            <Button>Apartment</Button>
-            <Button>Condo</Button>
-            <Button>Townhouse</Button>
-            <Button>Shophouse</Button>
-          </Buttons>
+          <Tags>
+            {roomTypes.map((i) => (
+              <Tag key={i.type} color={i.color}>
+                {i.type}
+              </Tag>
+            ))}
+          </Tags>
           <ClearButton>Clear</ClearButton>
         </Filters>
         <RoomsList>
@@ -46,7 +49,7 @@ const Filters = styled.ul`
   margin-bottom: var(--space-5);
 `;
 
-const Buttons = styled.div`
+const Tags = styled.div`
   display: grid;
   grid-auto-flow: column;
   gap: 10px;
