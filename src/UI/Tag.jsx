@@ -6,8 +6,8 @@ function Tag(props) {
 
 const TagWrapper = styled.div`
   background-color: ${(props) =>
-    props.background ? props.background : "var(--color-orange-300)"};
-  color: ${(props) => (props.background ? "var(--color-white)" : "black")};
+    props.backgroundColor ? props.backgroundColor : "var(--color-orange-300)"};
+  color: ${(props) => (props.backgroundColor ? "var(--color-white)" : "black")};
   padding: var(--space-2) var(--space-3);
   border-radius: var(--border-radius-medium);
   font-size: var(--font-size-1);

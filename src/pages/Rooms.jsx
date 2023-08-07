@@ -11,14 +11,14 @@ export default function Rooms() {
     <MaxWidthWrapper>
       <RoomsWrapper>
         <Header>Explore our housing options</Header>
-        <Filters>
+        <FilterBar>
           <Tags>
             {roomTypes.map((i) => (
               <Tag key={i.type}>{i.type}</Tag>
             ))}
           </Tags>
           <ClearButton>Clear Filters</ClearButton>
-        </Filters>
+        </FilterBar>
         <RoomsList>
           {data.map((i) => (
             <li key={i.id}>
@@ -27,8 +27,12 @@ export default function Rooms() {
                   <Image src={`./images/${i.imageUrl}`}></Image>
                 </Link>
                 <Name>{i.name}</Name>
-                <Price>${i.price} / mth</Price>
-                <Tag background={getColor(roomTypes, i.type)}>{i.type}</Tag>
+                <Price>
+                  <Amount>${i.price}</Amount>/mth
+                </Price>
+                <Tag backgroundColor={getColor(roomTypes, i.type)}>
+                  {i.type}
+                </Tag>
               </Room>
             </li>
           ))}
@@ -38,7 +42,7 @@ export default function Rooms() {
   );
 }
 
-const Filters = styled.ul`
+const FilterBar = styled.ul`
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 20px;
@@ -60,12 +64,21 @@ const ClearButton = styled.p`
   text-decoration: underline;
 `;
 
+const Amount = styled.span`
+  font-weight: var(--font-weight-bold);
+`;
+
 const Price = styled.div``;
-const Name = styled.div``;
+const Name = styled.div`
+  font-weight: var(--font-weight-bold);
+`;
 const Image = styled.img`
   border-radius: var(--border-radius-medium);
 `;
-const Room = styled.article``;
+const Room = styled.article`
+  display: grid;
+  gap: var(--space-1);
+`;
 const Header = styled.h1`
   font-size: var(--font-size-6);
 `;
@@ -76,5 +89,5 @@ const RoomsWrapper = styled.div`
 const RoomsList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: var(--space-4);
+  gap: var(--space-5) var(--space-3);
 `;

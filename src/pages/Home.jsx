@@ -12,7 +12,9 @@ export default function Home() {
           Taste and Preferences.
         </HeroSubText>
       </HeroMessageWrapper>
-      <CTAButton height="44px">Find your room</CTAButton>
+      <CTAButton to="/rooms" height="44px">
+        Find your room
+      </CTAButton>
     </HeroImage>
   );
 }

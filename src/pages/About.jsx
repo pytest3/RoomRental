@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
 import { FullBleedWrapper } from "../UI/FullBleed";
+import CTAButton from "../UI/CTAButton";
 
 export default function About() {
   return (
@@ -25,17 +26,17 @@ export default function About() {
         </MissionStatement>
         <CallToAction>
           <CTAText>Step into the World of Room Rentals</CTAText>
-          <CTAButton>Explore our rooms</CTAButton>
+          <CTAButton to="/rooms" color="black" fontSize="var(--font-size-2)">
+            Explore our rooms
+          </CTAButton>
         </CallToAction>
       </AboutWrapper>
     </MaxWidthWrapper>
   );
 }
-const CTAButton = styled.button`
-  font-size: var(--font-size-2);
-`;
+
 const CTAText = styled.p`
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-5);
   font-weight: var(--font-weight-bold);
   max-width: 20ch;
 `;
