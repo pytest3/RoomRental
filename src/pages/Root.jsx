@@ -18,3 +18,8 @@ const RootWrapper = styled.div`
   grid-template-rows: 45px 1fr 45px;
   height: 100%;
 `;
+
+// const StyledOutlet = styled(Outlet)`
+//   background-color: red;
+//   border: 10px solid red;
+// `;

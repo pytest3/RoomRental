@@ -4,6 +4,7 @@ import { data } from "../mockdata/data.js";
 import { roomTypes } from "../mockdata/roomTypes.js";
 import { Link } from "react-router-dom";
 import Tag from "../UI/Tag";
+import { getColor } from "../helper/getColor";
 
 export default function Rooms() {
   return (
@@ -13,12 +14,10 @@ export default function Rooms() {
         <Filters>
           <Tags>
             {roomTypes.map((i) => (
-              <Tag key={i.type} color={i.color}>
-                {i.type}
-              </Tag>
+              <Tag key={i.type}>{i.type}</Tag>
             ))}
           </Tags>
-          <ClearButton>Clear</ClearButton>
+          <ClearButton>Clear Filters</ClearButton>
         </Filters>
         <RoomsList>
           {data.map((i) => (
@@ -29,7 +28,7 @@ export default function Rooms() {
                 </Link>
                 <Name>{i.name}</Name>
                 <Price>${i.price} / mth</Price>
-                <Type>{i.type}</Type>
+                <Tag background={getColor(roomTypes, i.type)}>{i.type}</Tag>
               </Room>
             </li>
           ))}
@@ -42,11 +41,11 @@ export default function Rooms() {
 const Filters = styled.ul`
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
   justify-content: space-between;
   margin-top: var(--space-3);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-7);
 `;
 
 const Tags = styled.div`
@@ -61,15 +60,6 @@ const ClearButton = styled.p`
   text-decoration: underline;
 `;
 
-const Button = styled.button`
-  background-color: var(--color-orange-300);
-  border: none;
-  font-size: var(--font-size-1);
-  border-radius: var(--border-radius-medium);
-  padding: 4px 16px;
-`;
-
-const Type = styled.div``;
 const Price = styled.div``;
 const Name = styled.div``;
 const Image = styled.img`
@@ -80,12 +70,11 @@ const Header = styled.h1`
   font-size: var(--font-size-6);
 `;
 const RoomsWrapper = styled.div`
-  padding-top: var(--space-6);
+  padding: var(--space-8) 0;
 `;
 
 const RoomsList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: var(--space-4);
-  overflow: ;
 `;

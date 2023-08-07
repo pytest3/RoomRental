@@ -40,14 +40,17 @@ export default function Login() {
             Sign In
           </CTAButton>
         </Form>
-        <p>
+        <SignUpMessage>
           Dont have an account? <span>Create one now</span>
-        </p>
+        </SignUpMessage>
       </Wrapper>
     </MaxWidthWrapper>
   );
 }
 
+const SignUpMessage = styled.div`
+  text-align: center;
+`;
 const InputField = styled.input`
   border: 1px solid var(--color-gray-300);
   padding: var(--space-1) var(--space-2);
@@ -69,5 +72,5 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 27px;
-  margin-top: 49px;
+  margin-top: 69px;
 `;

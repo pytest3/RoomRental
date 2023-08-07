@@ -6,6 +6,7 @@ import Rooms from "./pages/Rooms";
 import Root from "./pages/Root";
 import RoomDetails from "./pages/RoomDetails";
 import Login from "./pages/Login";
+import ErrorBoundary from "./pages/ErrorBoundary";
 function App() {
   return (
     <>
@@ -17,8 +18,8 @@ function App() {
           <Route path="rooms" element={<Rooms />}></Route>
           <Route path="rooms/:id" element={<RoomDetails />}></Route>
           <Route path="login" element={<Login />}></Route>
+          <Route path="*" element={<ErrorBoundary></ErrorBoundary>}></Route>
         </Route>
-        {/* <Route index element={<Home />}></Route> */}
       </Routes>
     </>
   );
