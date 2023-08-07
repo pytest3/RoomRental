@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Rooms from "./pages/Rooms";
 import Root from "./pages/Root";
-
+import RoomDetails from "./pages/RoomDetails";
 function App() {
   return (
     <>
@@ -14,6 +14,7 @@ function App() {
           <Route index element={<Home />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="rooms" element={<Rooms />}></Route>
+          <Route path="rooms/:id" element={<RoomDetails />}></Route>
         </Route>
         {/* <Route index element={<Home />}></Route> */}
       </Routes>

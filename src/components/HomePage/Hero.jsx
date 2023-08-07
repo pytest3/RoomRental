@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-styled;
+import CTAButton from "../../UI/CTAButton.jsx";
 
 export default function Hero() {
   return (
@@ -12,7 +12,7 @@ export default function Hero() {
           Taste and Preferences.
         </HeroSubText>
       </HeroMessageWrapper>
-      <CTAButton>Find your room</CTAButton>
+      <CTAButton height="44px">Find your room</CTAButton>
     </HeroImage>
   );
 }
@@ -43,14 +43,4 @@ const HeroImage = styled.div`
   align-items: center;
   color: var(--color-gray-100);
   padding: 30px;
-`;
-
-const CTAButton = styled.button`
-  background-color: var(--color-orange-900);
-  color: var(--color-white);
-  padding: var(--space-4) var(--space-2);
-  border-radius: var(--border-radius-large);
-  font-size: var(--font-size-4);
-  border: none;
-  /* align-self: start; */
 `;

@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
 import { data } from "../mockdata/data.js";
+import { Link } from "react-router-dom";
 
 export default function Rooms() {
   return (
@@ -20,7 +21,9 @@ export default function Rooms() {
           {data.map((i) => (
             <li key={i.id}>
               <Room>
-                <Image src={`./images/${i.imageUrl}`}></Image>
+                <Link to={i.id.toString()}>
+                  <Image src={`./images/${i.imageUrl}`}></Image>
+                </Link>
                 <Name>{i.name}</Name>
                 <Price>${i.price} / mth</Price>
                 <Type>{i.type}</Type>
