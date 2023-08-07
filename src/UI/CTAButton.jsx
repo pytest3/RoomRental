@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 
-function Button(props) {
-  return <CTAButton {...props}></CTAButton>;
+function CTAButton(props) {
+  return <Wrapper {...props}></Wrapper>;
 }
 
-const CTAButton = styled.button`
+const Wrapper = styled.button`
   background-color: var(--color-orange-900);
   color: var(--color-white);
   padding: var(--space-4) var(--space-2);
@@ -17,4 +17,4 @@ const CTAButton = styled.button`
   place-content: center;
 `;
 
-export default Button;
+export default CTAButton;

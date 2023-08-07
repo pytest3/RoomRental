@@ -6,6 +6,7 @@ export default function NavBar() {
     <NavBarWrapper>
       <Logo to="/">RoomHub</Logo>
       <NavBarActions>
+        <StyledLink to="/host">Host</StyledLink>
         <StyledLink to="/about">About</StyledLink>
         <StyledLink to="/rooms">Rooms</StyledLink>
       </NavBarActions>
