@@ -8,29 +8,56 @@ import { getColor } from "../helper/getColor";
 import { useState } from "react";
 
 export default function Rooms() {
-  const [selectedTypes, setSelectedTypes] = useState([]);
-  const [displayedRooms, setDisplayedRooms] = useState(data);
+  const [filters, setFilters] = useState([]);
+  const [filteredData, setFilteredData] = useState(data);
+  const [isFilterClear, setIsFilterClear] = useState(false);
 
-  function handleClick(type) {
-    setSelectedTypes([...selectedTypes, type]);
+  function addFilter(type) {
+    if (filters.includes(type)) {
+      return;
+    }
+    const updatedFilters = [...filters, type];
+    setFilters(updatedFilters);
+    setFilteredData(data.filter((i) => !updatedFilters.includes(i.type)));
   }
-  // includes
+
+  function removeFilter(type) {
+    if (!filters.includes(type)) {
+      return;
+    }
+    const updatedFilters = filters.filter((i) => i !== type);
+    setFilters(updatedFilters);
+    setFilteredData(data.filter((i) => !updatedFilters.includes(i.type)));
+  }
+
+  function clearFilters() {
+    const updatedFilters = [];
+    setFilters(updatedFilters);
+    setFilteredData(data.filter((i) => !updatedFilters.includes(i.type)));
+    setIsFilterClear(new Date().getTime());
+  }
+
   return (
     <MaxWidthWrapper>
       <RoomsWrapper>
         <Header>Explore our housing options</Header>
         <FilterBar>
-          <Tags>
+          <Tags key={isFilterClear}>
             {roomTypes.map((i) => (
-              <Tag key={i.type} onClick={() => handleClick(i.type)}>
+              <Tag
+                key={i.type}
+                type={i.type}
+                addFilter={addFilter}
+                removeFilter={removeFilter}
+              >
                 {i.type}
               </Tag>
             ))}
           </Tags>
-          <ClearButton>Clear Filters</ClearButton>
+          <ClearButton onClick={clearFilters}>Clear Filters</ClearButton>
         </FilterBar>
         <RoomsList>
-          {displayedRooms.map((i) => (
+          {filteredData.map((i) => (
             <li key={i.id}>
               <Room>
                 <Link to={i.id.toString()}>
@@ -52,7 +79,7 @@ export default function Rooms() {
   );
 }
 
-const FilterBar = styled.ul`
+const FilterBar = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 20px;
@@ -61,6 +88,7 @@ const FilterBar = styled.ul`
   margin-top: var(--space-3);
   margin-bottom: var(--space-7);
   overflow: auto;
+  /* width: 200px; */
 `;
 
 const Tags = styled.div`
