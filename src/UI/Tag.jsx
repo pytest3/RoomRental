@@ -1,12 +1,10 @@
 import { styled } from "styled-components";
-import { useEffect, useReducer, useState } from "react";
-import { data } from "../mockdata/data";
-import { roomTypes } from "../mockdata/roomTypes";
+import { useState } from "react";
 
-function Tag(props) {
+function Tag({ addFilter, removeFilter, ...rest }) {
   const [isClicked, setIsClicked] = useState(false);
 
-  const { type, addFilter, removeFilter } = props;
+  const { type } = rest;
 
   function handleClick() {
     if (isClicked) {
@@ -28,16 +26,17 @@ function Tag(props) {
     <TagWrapper
       onClick={handleClick}
       $clicked={isClicked}
-      {...props}
+      {...rest}
     ></TagWrapper>
   );
 }
 
 const TagWrapper = styled.div`
-  filter: ${({ $clicked }) => ($clicked ? "grayscale(1)" : "none")};
-  background-color: ${(props) =>
-    props.backgroundcolor ? props.backgroundcolor : "var(--color-orange-300)"};
-  color: ${(props) => (props.backgroundcolor ? "var(--color-white)" : "black")};
+  /* filter: ${({ $clicked }) => ($clicked ? "grayscale(1)" : "none")}; */
+  opacity: ${({ $clicked }) => ($clicked ? "0.3" : "1")};
+  background-color: ${(rest) =>
+    rest.$backgroundcolor ? rest.$backgroundcolor : "var(--color-orange-300)"};
+  color: ${(rest) => (rest.$backgroundcolor ? "var(--color-white)" : "black")};
   padding: var(--space-2) var(--space-3);
   border-radius: var(--border-radius-medium);
   font-size: var(--font-size-1);

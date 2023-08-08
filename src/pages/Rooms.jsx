@@ -67,7 +67,7 @@ export default function Rooms() {
                 <Price>
                   <Amount>${i.price}</Amount>/mth
                 </Price>
-                <Tag backgroundcolor={getColor(roomTypes, i.type)}>
+                <Tag $backgroundcolor={getColor(roomTypes, i.type)}>
                   {i.type}
                 </Tag>
               </Room>
@@ -82,7 +82,7 @@ export default function Rooms() {
 const FilterBar = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 20px;
+  gap: 8px;
   align-items: center;
   justify-content: space-between;
   margin-top: var(--space-3);
