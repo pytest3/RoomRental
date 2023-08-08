@@ -5,8 +5,16 @@ import { roomTypes } from "../mockdata/roomTypes.js";
 import { Link } from "react-router-dom";
 import Tag from "../UI/Tag";
 import { getColor } from "../helper/getColor";
+import { useState } from "react";
 
 export default function Rooms() {
+  const [selectedTypes, setSelectedTypes] = useState([]);
+  const [displayedRooms, setDisplayedRooms] = useState(data);
+
+  function handleClick(type) {
+    setSelectedTypes([...selectedTypes, type]);
+  }
+  // includes
   return (
     <MaxWidthWrapper>
       <RoomsWrapper>
@@ -14,13 +22,15 @@ export default function Rooms() {
         <FilterBar>
           <Tags>
             {roomTypes.map((i) => (
-              <Tag key={i.type}>{i.type}</Tag>
+              <Tag key={i.type} onClick={() => handleClick(i.type)}>
+                {i.type}
+              </Tag>
             ))}
           </Tags>
           <ClearButton>Clear Filters</ClearButton>
         </FilterBar>
         <RoomsList>
-          {data.map((i) => (
+          {displayedRooms.map((i) => (
             <li key={i.id}>
               <Room>
                 <Link to={i.id.toString()}>
@@ -30,7 +40,7 @@ export default function Rooms() {
                 <Price>
                   <Amount>${i.price}</Amount>/mth
                 </Price>
-                <Tag backgroundColor={getColor(roomTypes, i.type)}>
+                <Tag backgroundcolor={getColor(roomTypes, i.type)}>
                   {i.type}
                 </Tag>
               </Room>
@@ -50,6 +60,7 @@ const FilterBar = styled.ul`
   justify-content: space-between;
   margin-top: var(--space-3);
   margin-bottom: var(--space-7);
+  overflow: auto;
 `;
 
 const Tags = styled.div`

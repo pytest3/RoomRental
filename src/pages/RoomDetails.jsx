@@ -29,7 +29,7 @@ export default function RoomDetails() {
         <StyledLink to="/rooms"> ← Back to all rooms </StyledLink>
         <Image src={`/images/${imageUrl}`}></Image>
         <TagWrapper>
-          <Tag backgroundColor={color}>{type}</Tag>
+          <Tag backgroundcolor={color}>{type}</Tag>
         </TagWrapper>
         <h1>{name}</h1>
         <p>
