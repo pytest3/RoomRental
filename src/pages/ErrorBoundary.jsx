@@ -1,15 +1,16 @@
-import React from "react";
 import { styled } from "styled-components";
 import CTAButton from "../UI/CTAButton";
 import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
+import Buttons from "../components/Buttons/component";
+import { List } from "../components/List";
 
-export default function ErrorBoundary() {
+export function ErrorBoundary() {
   return (
     <MaxWidthWrapper>
       <ErrorWrapper>
         <Header>Sorry, the page you were looking for was not found.</Header>
         <CTAButton to="/" color="black">
-          Return to home
+          Return to home <List></List>
         </CTAButton>
       </ErrorWrapper>
     </MaxWidthWrapper>

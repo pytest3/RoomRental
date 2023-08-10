@@ -3,7 +3,7 @@ import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
 import { FullBleedWrapper } from "../UI/FullBleed";
 import CTAButton from "../UI/CTAButton";
 
-export default function About() {
+export function About() {
   return (
     <MaxWidthWrapper>
       <AboutWrapper>

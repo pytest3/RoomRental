@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { styled } from "styled-components";
 
-export default function Root() {
+export function Root() {
   return (
     <RootWrapper>
       <NavBar />

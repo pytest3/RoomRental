@@ -3,7 +3,7 @@ import CTAButton from "../UI/CTAButton";
 import { styled } from "styled-components";
 import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
 
-export default function Login() {
+export function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
 
   function handleSubmit() {

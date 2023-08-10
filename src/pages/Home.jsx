@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 import CTAButton from "../UI/CTAButton.jsx";
 
-export default function Home() {
+export function Home() {
   return (
     <HeroImage>
       <HeroMessageWrapper>

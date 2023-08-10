@@ -7,7 +7,7 @@ import CTAButton from "../UI/CTAButton.jsx";
 import Tag from "../UI/Tag";
 import { roomTypes } from "../mockdata/roomTypes";
 
-export default function RoomDetails() {
+export function RoomDetails() {
   const { id } = useParams();
   const {
     id: roomId,

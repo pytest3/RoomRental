@@ -7,7 +7,7 @@ import Tag from "../UI/Tag";
 import { getColor } from "../helper/getColor";
 import { useState } from "react";
 
-export default function Rooms() {
+export function Rooms() {
   const [filters, setFilters] = useState([]);
   const [filteredData, setFilteredData] = useState(data);
   const [isFilterClear, setIsFilterClear] = useState(false);
