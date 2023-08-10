@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-import CTAButton from "../UI/CTAButton.jsx";
+import CTAButton from "../components/elements/CTAButton.jsx";
 
 export function Home() {
   return (

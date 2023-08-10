@@ -45,4 +45,4 @@ const TagWrapper = styled.div`
   width: min-content;
 `;
 
-export default Tag;
+export { Tag };

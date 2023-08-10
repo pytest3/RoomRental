@@ -2,9 +2,9 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { data } from "../mockdata/data";
 import { styled } from "styled-components";
-import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
-import CTAButton from "../UI/CTAButton.jsx";
-import Tag from "../UI/Tag";
+import { MaxWidthWrapper } from "../components/wrappers/MaxWidthWrapper";
+import CTAButton from "../components/elements/CTAButton.jsx";
+import { Tag } from "../components/elements";
 import { roomTypes } from "../mockdata/roomTypes";
 
 export function RoomDetails() {

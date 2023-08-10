@@ -1,8 +1,6 @@
 import { styled } from "styled-components";
-import CTAButton from "../UI/CTAButton";
-import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
-import Buttons from "../components/Buttons/component";
-import { List } from "../components/List";
+import CTAButton from "../components/elements/CTAButton";
+import { MaxWidthWrapper } from "../components/wrappers";
 
 export function ErrorBoundary() {
   return (
@@ -10,7 +8,7 @@ export function ErrorBoundary() {
       <ErrorWrapper>
         <Header>Sorry, the page you were looking for was not found.</Header>
         <CTAButton to="/" color="black">
-          Return to home <List></List>
+          Return to home
         </CTAButton>
       </ErrorWrapper>
     </MaxWidthWrapper>

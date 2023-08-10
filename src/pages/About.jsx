@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
-import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
-import { FullBleedWrapper } from "../UI/FullBleed";
-import CTAButton from "../UI/CTAButton";
+import { FullBleedWrapper, MaxWidthWrapper } from "../components/wrappers";
+import CTAButton from "../components/elements/CTAButton";
 
 export function About() {
   return (

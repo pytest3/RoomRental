@@ -1,12 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import GlobalStyles from "./globalstyles/globalStyles";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Rooms from "./pages/Rooms";
-import Root from "./pages/Root";
-import RoomDetails from "./pages/RoomDetails";
-import Login from "./pages/Login";
-import ErrorBoundary from "./pages/ErrorBoundary";
+import {
+  About,
+  Rooms,
+  Root,
+  RoomDetails,
+  Login,
+  ErrorBoundary,
+  Home,
+} from "./pages";
+
 function App() {
   return (
     <>

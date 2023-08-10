@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CTAButton from "../UI/CTAButton";
+import CTAButton from "../components/elements/CTAButton";
 import { styled } from "styled-components";
-import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
+import { MaxWidthWrapper } from "../components/wrappers/MaxWidthWrapper";
 
 export function Login() {
   const [form, setForm] = useState({ email: "", password: "" });

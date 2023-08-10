@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
-import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
+import { MaxWidthWrapper } from "../components/wrappers";
 import { data } from "../mockdata/data.js";
 import { roomTypes } from "../mockdata/roomTypes.js";
 import { Link } from "react-router-dom";
-import Tag from "../UI/Tag";
-import { getColor } from "../helper/getColor";
+import { Tag } from "../components/elements";
+import { getColor } from "../utils/getColor";
 import { useState } from "react";
 
 export function Rooms() {
