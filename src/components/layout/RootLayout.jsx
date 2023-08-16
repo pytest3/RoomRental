@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import NavBar from "../components/layout/NavBar";
-import Footer from "../components/layout/Footer";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 import { styled } from "styled-components";
 
-export function Root() {
+export function RootLayout() {
   return (
     <RootWrapper>
       <NavBar />
@@ -15,8 +15,9 @@ export function Root() {
 
 const RootWrapper = styled.div`
   display: grid;
-  grid-template-rows: 45px 1fr 45px;
   height: 100%;
+  grid-template-rows: 45px 1fr 45px;
+  background-color: var(--color-orange-100);
 `;
 
 // const StyledOutlet = styled(Outlet)`

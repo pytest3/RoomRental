@@ -9,5 +9,4 @@ import { styled } from "styled-components";
 // }
 export const MaxWidthWrapper = styled.div`
   padding: 0 var(--global-padding);
-  background-color: var(--color-orange-100);
 `;

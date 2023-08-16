@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -14,9 +14,15 @@ export default function NavBar() {
   );
 }
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: var(--color-gray-900);
+
+  &.active {
+    text-decoration: underline;
+    font-weight: var(--font-weight-bold);
+    text-underline-offset: 4px;
+  }
 `;
 
 const NavBarActions = styled.div`

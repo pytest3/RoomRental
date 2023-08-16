@@ -26,10 +26,12 @@ export function RoomDetails() {
   return (
     <MaxWidthWrapper>
       <Wrapper>
-        <StyledLink to="/rooms"> ← Back to all rooms </StyledLink>
+        <StyledLink to=".." relative="path">
+          <LeftArrow>&larr;</LeftArrow> <span>Back to all rooms</span>
+        </StyledLink>
         <Image src={`/images/${imageUrl}`}></Image>
         <TagWrapper>
-          <Tag backgroundcolor={color}>{type}</Tag>
+          <Tag $backgroundcolor={color}>{type}</Tag>
         </TagWrapper>
         <h1>{name}</h1>
         <p>
@@ -64,4 +66,16 @@ const Wrapper = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: var(--color-gray-900);
+  display: flex;
+  align-items: center;
+  padding-bottom: var(--space-3);
+  gap: var(--space-2);
+`;
+
+const LeftArrow = styled.span`
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-weight-bolder);
+  font-size: var(--font-size-6);
+  margin-top: -5px;
 `;
