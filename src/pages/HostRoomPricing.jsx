@@ -1,12 +1,8 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { hostData } from "../mockdata/hostData";
+import { useOutletContext } from "react-router-dom";
 import { styled } from "styled-components";
 
 export function HostRoomPricing() {
-  const { id } = useParams();
-  const roomData = hostData.filter((i) => i.id.toString() === id);
-  const { price } = roomData[0];
+  const [price] = useOutletContext();
 
   return (
     <Price>
