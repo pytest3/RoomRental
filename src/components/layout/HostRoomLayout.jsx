@@ -29,7 +29,7 @@ export function HostRoomLayout() {
         <StyledNavLink to="pricing">Pricing</StyledNavLink>
         <StyledNavLink to="photos">Photos</StyledNavLink>
       </NavBar>
-      <Outlet context={[imageUrl, price]}></Outlet>
+      <Outlet context={{ imageUrl, price }}></Outlet>
     </Wrapper>
   );
 }

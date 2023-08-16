@@ -6,7 +6,7 @@ export function HostRoomPhotos() {
   // const roomData = hostData.filter((i) => i.id.toString() === id);
   // const { imageUrl } = roomData[0];
 
-  const [imageUrl] = useOutletContext();
+  const { imageUrl } = useOutletContext();
 
   return <img src={`/images/${imageUrl}`}></img>;
 }
