@@ -18,6 +18,7 @@ const RootWrapper = styled.div`
   height: 100%;
   grid-template-rows: 45px 1fr 45px;
   background-color: var(--color-orange-100);
+  overflow: auto;
 `;
 
 // const StyledOutlet = styled(Outlet)`
