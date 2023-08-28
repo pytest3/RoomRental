@@ -1,34 +1,8 @@
 import { styled } from "styled-components";
 import { useState } from "react";
 
-function Tag({ addFilter, removeFilter, ...rest }) {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const { type } = rest;
-
-  function handleClick() {
-    if (isClicked) {
-      removeFilter(type);
-      setIsClicked(!isClicked);
-    } else if (!isClicked) {
-      addFilter(type);
-      setIsClicked(!isClicked);
-      console.log("here");
-    }
-  }
-
-  // useEffect(() => {
-  //   setIsClicked(false);
-  //   console.log();
-  // }, [isFilterClear]);
-
-  return (
-    <TagWrapper
-      onClick={handleClick}
-      $clicked={isClicked}
-      {...rest}
-    ></TagWrapper>
-  );
+function Tag({ ...rest }) {
+  return <TagWrapper {...rest}></TagWrapper>;
 }
 
 const TagWrapper = styled.div`

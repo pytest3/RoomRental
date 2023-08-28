@@ -2,59 +2,44 @@ import { styled } from "styled-components";
 import { MaxWidthWrapper } from "../components/wrappers";
 import { data } from "../mockdata/data.js";
 import { roomTypes } from "../mockdata/roomTypes.js";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Tag } from "../components/elements";
 import { getColor } from "../utils/getColor";
 import { useState } from "react";
 
 export function Rooms() {
-  const [filters, setFilters] = useState([]);
-  const [filteredData, setFilteredData] = useState(data);
-  const [isFilterClear, setIsFilterClear] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  function addFilter(type) {
-    if (filters.includes(type)) {
-      return;
-    }
-    const updatedFilters = [...filters, type];
-    setFilters(updatedFilters);
-    setFilteredData(data.filter((i) => !updatedFilters.includes(i.type)));
-  }
+  const typeFilter = searchParams.get("type");
 
-  function removeFilter(type) {
-    if (!filters.includes(type)) {
-      return;
-    }
-    const updatedFilters = filters.filter((i) => i !== type);
-    setFilters(updatedFilters);
-    setFilteredData(data.filter((i) => !updatedFilters.includes(i.type)));
-  }
+  const filteredData = typeFilter
+    ? data.filter((i) => i.type === typeFilter)
+    : data;
 
-  function clearFilters() {
-    const updatedFilters = [];
-    setFilters(updatedFilters);
-    setFilteredData(data.filter((i) => !updatedFilters.includes(i.type)));
-    setIsFilterClear(new Date().getTime());
-  }
+  // const sp = new URLSearchParams(searchParams);
+  // sp.set("name", "zac");
+  // console.log(sp);
+  // console.log(sp.toString());
 
   return (
     <MaxWidthWrapper>
       <RoomsWrapper>
         <Header>Explore our housing options</Header>
         <FilterBar>
-          <Tags key={isFilterClear}>
+          <Tags>
             {roomTypes.map((i) => (
-              <Tag
+              <StyledLink
                 key={i.type}
                 type={i.type}
-                addFilter={addFilter}
-                removeFilter={removeFilter}
+                selected={typeFilter === i.type}
+                // to={`?type=${i.type}`} if using <Link>
+                onClick={() => setSearchParams({ type: i.type })}
               >
                 {i.type}
-              </Tag>
+              </StyledLink>
             ))}
           </Tags>
-          <ClearButton onClick={clearFilters}>Clear Filters</ClearButton>
+          <ClearButton to=".">Clear Filters</ClearButton>
         </FilterBar>
         <RoomsList>
           {filteredData.map((i) => (
@@ -78,7 +63,20 @@ export function Rooms() {
     </MaxWidthWrapper>
   );
 }
-
+const StyledLink = styled.button`
+  opacity: ${({ $clicked }) => ($clicked ? "0.3" : "1")};
+  background-color: ${({ selected, type }) =>
+    selected ? getColor(roomTypes, type) : "var(--color-orange-300)"};
+  color: ${({ selected }) => (selected ? "var(--color-white)" : "black")};
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-1);
+  display: grid;
+  place-content: center;
+  width: min-content;
+  text-decoration: none;
+  border: none;
+`;
 const FilterBar = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
@@ -98,9 +96,11 @@ const Tags = styled.div`
   overflow: auto;
 `;
 
-const ClearButton = styled.p`
+const ClearButton = styled(Link)`
   font-size: var(--font-size-1);
-  text-decoration: underline;
+  border-bottom: 1px solid black;
+  color: black;
+  text-decoration: none;
 `;
 
 const Amount = styled.span`
