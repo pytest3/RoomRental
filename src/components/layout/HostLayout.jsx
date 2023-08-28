@@ -39,7 +39,7 @@ const Links = styled.nav`
 const HostLayoutWrapper = styled.div`
   display: grid;
   gap: var(--space-4);
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: 40px 30px 1fr;
   align-items: start;
   padding-top: var(--space-7);
   height: 100%;

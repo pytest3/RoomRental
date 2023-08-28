@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import { hostData } from "../../mockdata/hostData";
 import { styled } from "styled-components";
 import { Tag } from "../elements";
@@ -13,26 +13,48 @@ export function HostRoomLayout() {
   color = roomTypes.filter((i) => i.type === type)[0].color;
 
   return (
-    <Wrapper>
-      <MainDescription>
-        <Tag $backgroundcolor={color}>{type}</Tag>
-        <Image src={`/images/${imageUrl}`}></Image>
-        <Name>{name}</Name>
-        <p>
-          <strong>${price}</strong> / month
-        </p>
-      </MainDescription>
-      <NavBar>
-        <StyledNavLink end to=".">
-          Details
-        </StyledNavLink>
-        <StyledNavLink to="pricing">Pricing</StyledNavLink>
-        <StyledNavLink to="photos">Photos</StyledNavLink>
-      </NavBar>
-      <Outlet context={{ imageUrl, price }}></Outlet>
-    </Wrapper>
+    <>
+      <StyledBackLink to=".." relative="path">
+        <LeftArrow>&larr;</LeftArrow> <span>Back to all rooms</span>
+      </StyledBackLink>
+      <Wrapper>
+        <MainDescription>
+          <Tag $backgroundcolor={color}>{type}</Tag>
+          <Image src={`/images/${imageUrl}`}></Image>
+          <Name>{name}</Name>
+          <p>
+            <strong>${price}</strong> / month
+          </p>
+        </MainDescription>
+        <NavBar>
+          <StyledNavLink end to=".">
+            Details
+          </StyledNavLink>
+          <StyledNavLink to="pricing">Pricing</StyledNavLink>
+          <StyledNavLink to="photos">Photos</StyledNavLink>
+        </NavBar>
+        <Outlet context={{ imageUrl, price }}></Outlet>
+      </Wrapper>
+    </>
   );
 }
+
+const LeftArrow = styled.span`
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-weight-bolder);
+  font-size: var(--font-size-6);
+  margin-top: -5px;
+`;
+
+const StyledBackLink = styled(Link)`
+  text-decoration: none;
+  color: var(--color-gray-900);
+  display: flex;
+  align-items: center;
+  padding-bottom: var(--space-3);
+  gap: var(--space-2);
+`;
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
