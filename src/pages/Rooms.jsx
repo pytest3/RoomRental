@@ -39,7 +39,7 @@ export function Rooms() {
               </StyledLink>
             ))}
           </Tags>
-          <ClearButton to=".">Clear Filters</ClearButton>
+          {typeFilter && <ClearButton to=".">Clear Filters</ClearButton>}
         </FilterBar>
         <RoomsList>
           {filteredData.map((i) => (
@@ -86,6 +86,7 @@ const FilterBar = styled.div`
   margin-top: var(--space-3);
   margin-bottom: var(--space-7);
   overflow: auto;
+  /* border: 1px solid red; */
   /* width: 200px; */
 `;
 
@@ -123,6 +124,7 @@ const Header = styled.h1`
 `;
 const RoomsWrapper = styled.div`
   padding: var(--space-8) 0;
+  /* border: 1px solid red; */
 `;
 
 const RoomsList = styled.ul`
