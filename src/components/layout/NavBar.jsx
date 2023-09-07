@@ -6,13 +6,22 @@ export default function NavBar() {
     <NavBarWrapper>
       <Logo to="/">RoomHub</Logo>
       <NavBarActions>
-        <StyledLink to="/host">Host</StyledLink>
-        <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/rooms">Rooms</StyledLink>
+        <StyledLink to="host">Host</StyledLink>
+        <StyledLink to="about">About</StyledLink>
+        <StyledLink to="rooms">Rooms</StyledLink>
+        <StyledLink to="login">
+          <LoginIcon src="./images/login.png"></LoginIcon>
+        </StyledLink>
       </NavBarActions>
     </NavBarWrapper>
   );
 }
+
+const LoginIcon = styled.img`
+  height: 20px;
+  width: 20px;
+  margin-top: 4px;
+`;
 
 const StyledLink = styled(NavLink)`
   text-decoration: none;
@@ -31,6 +40,7 @@ const NavBarActions = styled.div`
   justify-self: end;
   gap: 10px;
 `;
+
 const Logo = styled(Link)`
   font-size: var(--font-size-6);
   text-decoration: none;
@@ -40,9 +50,8 @@ const Logo = styled(Link)`
 
 const NavBarWrapper = styled.nav`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  justify-content: end;
   padding: 0 var(--global-padding);
   background-color: var(--color-orange-100);
 `;
